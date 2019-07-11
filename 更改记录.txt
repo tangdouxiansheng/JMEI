@@ -1,0 +1,10 @@
+//（z）上传空文件src
+//（z）上传基本路由组件
+//（t）上传文件夹public，内含字体图标需要样式
+//（z）修改文件shopping.vue购物车;my.vue我的;上传图片在assets中
+//（t）上传正向代理文件
+//（t）修改文件index.vue一级主页;goods.vue今天明天购物列表
+//（z）修改文件main.vue引入添加加载等待动画效果
+	修改文件router加入登陆，注册页面
+	新加src目录下文件land.vue登陆，register.vue注册,修改文件my.vue
+//

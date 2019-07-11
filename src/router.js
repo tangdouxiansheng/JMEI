@@ -11,6 +11,9 @@ import body from './components/body.vue'          //母婴
 import light from './components/light.vue'        //轻奢
 import sale from './components/sale.vue'          //名品特卖
 import goods from './components/goods.vue'        //今日明日商品
+import register from './views/register.vue'       //注册
+import land from './views/land.vue'               //登录
+
 
 Vue.use(Router)
 
@@ -23,7 +26,6 @@ export default new Router({
       {path:"/index/home",name:"home",component:home,redirect:{"name":"page"},children:[
         {path:"/index/home/page",name:"page",component:page,children:[
           {path:"/index/home/page/:goods?",name:"goods",component:goods}
-          // {path:"/index/home/tomorrow",name:"tomorrow",component:tomorrow}
         ]},
         {path:"/index/home/fast",name:"fast",component:fast},
         {path:"/index/home/body",name:"body",component:body},
@@ -33,6 +35,8 @@ export default new Router({
       {path:"/index/assemble",name:"assemble",component:assemble},
       {path:"/index/shopping",name:"shopping",component:shopping},
       {path:"/index/my",name:"my",component:my}
-    ]}
+    ]},
+    {path:"/register",name:"register",component:register},
+    {path:"/land",name:"land",component:land}
   ]
 })

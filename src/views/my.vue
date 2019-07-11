@@ -7,9 +7,13 @@
         </div>
         <div class="z_user">
             <div class="fa fa-eercast" aria-hidden="true"></div>
-            <div class="z_operation">
-                <span>注册</span>
-                <span>登陆</span>
+            <div class="z_operation" v-if="bool">
+                帅气的<span class="nowname">{{name}}</span>您好
+                <span class="quit" @click="quit">注销</span>
+            </div>
+            <div class="z_operation" v-else>
+                <span @click="register">注册</span>
+                <span @click="land">登陆</span>
             </div>
         </div>
         <div class="z_order">
@@ -75,28 +79,58 @@
 </template>
 <script>
 export default {
+    data(){
+        return{
+            name:"",
+            bool:false
+        }
+    },
     methods:{
         z_back(){
             this.$router.go(-1)
         },
         z_home(){
             this.$router.push("/")
+        },
+        register(){
+            this.$router.push("/register")
+        },
+        land(){
+            this.$router.push("/land")
+        },
+        quit(){
+            // localStorage.removeItem("name");
+            this.bool = false
+            // this.$router.go(0)
         }
+    },
+    created(){
+        if(localStorage.getItem("name")){
+            this.name = localStorage.getItem("name")
+            this.bool = true;
+        }else{
+            this.bool = false;
+            console.log(this.bool)
+        }
+        
     }
 }
 </script>
 <style scoped>
     .my{width:100%;background:#eee}
+
     .z_nav{padding:0 0.255rem;height:0.818rem;line-height:0.818rem;text-align:center;background:#ed145b;padding-bottom:0.4rem;}
     .z_nav .fa{font-size:0.327rem;color:#fff;line-height:0.818rem;}
     .z_nav .fa-angle-left{float:left;}
     .z_nav .fa-home{float:right;}
     .z_nav span{color:#fff;font-size:0.309rem;}
 
-    .z_user{width:100%;height:1.945rem;background:#ed145b;margin-top:-1px;}
+    .z_user{width:100%;height:2.5rem;background:#ed145b;margin-top:-1px;}
     .z_user .fa{width:100%;height:1.091rem;font-size:1.091rem;text-align:center;color:#fff;}
-    .z_user .z_operation{width:3.636rem;height:0.436rem;line-height:0.436rem;margin:auto;text-align:center;padding:0.182rem;font-size:0.345rem;color:#fff;}
+    .z_user .z_operation{width:3.636rem;height:0.636rem;line-height:0.436rem;margin:auto;text-align:center;padding-top:0.182rem;font-size:0.345rem;color:#fff;}
     .z_user .z_operation span{width:1.727rem;display:inline-block;font-weight:800;}
+    .z_user .z_operation .nowname{color:cyan;font-size:23px}
+    .z_user .z_operation .quit{float:right;font-size:14px;border:1px solid black;background:cornflowerblue;border-radius:30px;margin-top:8px;}
 
     .z_order{background:#fff;margin-top:0.218rem;}
     .z_order .z_up{height:0.909rem;padding-left:0.145rem;border-bottom:1px solid #eaeaea;line-height:0.909rem;font-size:17px;}
