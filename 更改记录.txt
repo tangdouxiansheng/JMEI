@@ -18,4 +18,7 @@
 
 //(t)新增了首页商品的详情页/components/detail.vue
 //(t)更改路由文件router.js配置
-//(t)更改/components/goods.vue文件
+//(t)更改了/components/goods.vue文件
+
+//(t)在src目录下新增module文件夹，存放自定义指令文件
+//(t)修改了/views/home.vue文件，增加吸顶效果及搜索框
