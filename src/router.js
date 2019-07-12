@@ -15,6 +15,7 @@ import register from './views/register.vue'       //注册
 import land from './views/land.vue'               //登录
 import assList from './views/assemble/assList.vue' //拼团列表
 import assDetail from './views/assemble/assDetail.vue' //拼团列表详情页
+import detail from './components/detail.vue'       // 首页跳转的详情页
 Vue.use(Router)
 
 export default new Router({
@@ -45,6 +46,7 @@ export default new Router({
       path:"/assDetail/:id",name:"assDetail",component:assDetail
     },
     {path:"/register",name:"register",component:register},
-    {path:"/land",name:"land",component:land}
+    {path:"/land",name:"land",component:land},
+    {path:'/detail/:id',name:'dateil',component:detail}
   ]
 })

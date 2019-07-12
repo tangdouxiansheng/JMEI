@@ -13,4 +13,8 @@
 //(c)新增拼团详情页内容
 
 //(t)更新了components文件夹的所有组件
+
 //（z）修改index文件新加底部字体图标
+
+//(t)新增了首页商品的详情页/components/detail.vue
+//(t)更改路由文件router.js配置
