@@ -6,7 +6,9 @@
         infinite-scroll-disabled="loading"
         infinite-scroll-distance="10"
         class="goods_ul">
+        
         <li v-for="(item,index) in list" :key="index" class="goods_list">
+          <router-link :to='"/detail/"+item.item_id'>
           <img :src="item.image_url_set.dx_image?item.image_url_set.dx_image.url[320]:item.image_url_set.main[320]" class="goods_list_img" />
           <div class="goods_list_div">
             <p class="goods_div_name">{{item.name}}</p>
@@ -16,7 +18,9 @@
             </p>
             <p class="goods_div_comments">{{item.deal_comments_number}}条评论</p>
           </div>
+          </router-link>
         </li>
+        
       </ul>
     </div>
     <mt-button plain class = "goods_button_gotop" @click="gotop" v-show="bool">顶</mt-button>
@@ -75,7 +79,7 @@ export default {
             user_tag_id: 0,
             source: "touch",
             site: "bj",
-             k:Date.now()
+            k:Date.now()
           }
         }).then((res) => {
           this.list = this.list.concat(res.data.item_list);
