@@ -4,7 +4,7 @@
             <i class="fa fa-angle-left" aria-hidden="true" @click="z_back"></i>
             <span>购物车</span>
             <i class="fa fa-home" aria-hidden="true" @click="z_home"></i>
-            <button @click="ooo">ooo</button>
+            <!-- <button @click="ooo">ooo</button> -->
         </div>
         <ul v-if="shop.goods.length !== 0 && name" class="list">
 			<li v-for="(item,index) in shop.goods" :key="index" class="row">
@@ -63,9 +63,9 @@ export default {
         z_home(){
             this.$router.push("/")
         },
-        ooo(){
-            console.log(this.shop.goods)
-        }
+        // ooo(){
+        //     console.log(this.shop.goods)
+        // }
     }
 }
 </script>
