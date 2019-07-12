@@ -13,8 +13,8 @@ import sale from './components/sale.vue'          //名品特卖
 import goods from './components/goods.vue'        //今日明日商品
 import register from './views/register.vue'       //注册
 import land from './views/land.vue'               //登录
-
-
+import assList from './views/assemble/assList.vue' //拼团列表
+import assDetail from './views/assemble/assDetail.vue' //拼团列表详情页
 Vue.use(Router)
 
 export default new Router({
@@ -26,16 +26,24 @@ export default new Router({
       {path:"/index/home",name:"home",component:home,redirect:{"name":"page"},children:[
         {path:"/index/home/page",name:"page",component:page,children:[
           {path:"/index/home/page/:goods?",name:"goods",component:goods}
+          // {path:"/index/home/tomorrow",name:"tomorrow",component:tomorrow}
         ]},
         {path:"/index/home/fast",name:"fast",component:fast},
         {path:"/index/home/body",name:"body",component:body},
         {path:"/index/home/light",name:"light",component:light},
         {path:"/index/home/sale",name:"sale",component:sale}
       ]},
-      {path:"/index/assemble",name:"assemble",component:assemble},
+      {path:"/index/assemble",name:"assemble",component:assemble,
+        redirect:'/index/assemble/assList',
+        children:[
+        {path:'/index/assemble/assList',name:'assList',component:assList}
+      ]},
       {path:"/index/shopping",name:"shopping",component:shopping},
       {path:"/index/my",name:"my",component:my}
     ]},
+    {
+      path:"/assDetail/:id",name:"assDetail",component:assDetail
+    },
     {path:"/register",name:"register",component:register},
     {path:"/land",name:"land",component:land}
   ]

@@ -7,6 +7,7 @@
             <router-link to="/index/my">我的</router-link>
         </div>
         <router-view/>
+        <div class="nav-empty"></div>
     </div>
 </template>
 <script>
@@ -21,5 +22,8 @@
         background:#fff;border-top:1px solid rgb(238,238,238);z-index:5;}
     #nav a{width:25%;display:inline-block;text-align:center;}
     .router-link-active{color:#fe4070;}
+    .nav-empty{
+        height:0.98rem;
+    }
 </style>
 
