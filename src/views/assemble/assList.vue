@@ -1,5 +1,5 @@
 <template>
-    <div class="box">
+    <div class="box" >
             <div class="box_title">
                 <div class="title">
                     <ul>
@@ -11,22 +11,23 @@
             <div class="box_empty"></div>
             <div class="box_body">
                 <ul>
-                    <li v-for="(item,index) in data" :key="index">
-                        <router-link :to="'/assDetail/'+item.item_id">
-                        <div class="box-container">
-                           <div class="people-number">{{item.buyer_number_text}}</div>
-                           <div class="goods-topsmall"><img :src="item.image" alt=""></div> 
-                           <div class="goods-middle"><span class="goods-num">{{item.group_name_tag}}</span>{{item.short_name}}</div>
-                           <div class="goods-foot">
-                               <div class="price-left">
-                                   <span class="ct-price">{{item.jumei_price}}</span>
-                                   <span class="jm-price">{{item.single_price}}</span>
-                               </div>
-                               <div class="goods-foot-btn">去开团</div>
-                           </div>
-                        </div>
-                        </router-link>
-                    </li>
+                        <li v-for="(item,index) in data" :key="index">
+                            <!-- 路由传参 -->
+                            <router-link :to="'/assDetail/'+item.item_id">  
+                                <div class="box-container">
+                                <div class="people-number">{{item.buyer_number_text}}</div>
+                                <div class="goods-topsmall"><img :src="item.image" alt=""></div> 
+                                <div class="goods-middle"><span class="goods-num">{{item.group_name_tag}}</span>{{item.short_name}}</div>
+                                <div class="goods-foot">
+                                    <div class="price-left">
+                                        <span class="ct-price">{{item.jumei_price}}</span>
+                                        <span class="jm-price">{{item.single_price}}</span>
+                                    </div>
+                                    <div class="goods-foot-btn">去开团</div>
+                                </div>
+                                </div>
+                            </router-link>
+                        </li>
                 </ul>
             </div>
         <router-view/>
@@ -53,7 +54,10 @@ export default {
             ],
             data:[],
             bool:false,
-            number:0
+            number:0,
+            page:1,
+            loading:false, 
+            type:'',
         }
     },
     created(){
@@ -62,20 +66,18 @@ export default {
     methods:{
         getData(type,index){
             this.number = index;
+            this.type = type
             this.$axios.get('/jm/yiqituan/tab_list?',{
                 params:{
                     tab:type,
-                    page:1,
-                    per_page:20
+                    page:this.page,
+                    per_page:20,
+                    k:Date.now()
                 }
             }).then((res)=>{
                 this.data = res.data.data;
-                console.log(res.data)
             })
         },
-        // go(){
-        //     this.$router.push('/assDetail')
-        // }
     },
    
 }
@@ -194,7 +196,6 @@ export default {
         color: #fe4070;
         border-bottom: 0.1rem solid #fe4070;
     }
-  
 </style>
 
 
