@@ -2,7 +2,7 @@
     <div>
         <div class="z_nav">
             <i class="fa fa-angle-left" aria-hidden="true" @click="z_back"></i>
-            <span>{{"详情页面"}}</span>
+            <span>{{name}}</span>
             <i class="fa fa-home" aria-hidden="true" @click="z_home"></i>
         </div> 
         <img :src="list.img" class = "detail_img"/>
@@ -23,24 +23,29 @@
                 购物车
             </router-link>
             <router-link to="/index/shopping" class = "detail_nowshop">立即购买</router-link>
-            <router-link to="/index/shopping" class = "detail_addshop">加入购物车</router-link>
+            <p class = "detail_addshop" @click="addshop({...list,name,id,number:1,check:true})">加入购物车</p>
+            <!-- <router-link to="/index/shopping" class = "detail_addshop">加入购物车</router-link> -->
         </div>
     </div>
 </template>
 
 
 <script>
+    import {mapMutations} from "vuex"
     import { Button } from 'mint-ui';
     export default {
         data(){
             return {
-                list:[]
+                list:[],
+                name:"",
+                id:0
             }
         },
         created(){
            this.getData()
         },
         methods:{
+            ...mapMutations(["addshop"]),
             z_back(){
                 this.$router.go(-1)
             },
@@ -48,15 +53,25 @@
                 this.$router.push("/")
             },
             getData(){
-                var id = this.$route.params.id;
+                this.id = this.$route.params.id;
                 this.$axios.get('/body/product/ajaxDynamicDetail?',{
                     params:{
-                        item_id:id,
+                        item_id:this.id,
                         type:"global_deal"
                     }
                 }
                 ).then((res)=>{
                     this.list = res.data.data.result;
+                    // console.log(this.list)
+                });
+                this.$axios.get('/body/product/ajaxStaticDetail?',{
+                    params:{
+                        item_id:this.id,
+                        type:"global_deal"
+                    }
+                }
+                ).then((res)=>{
+                    this.name = res.data.data.short_name;
                 })
             }
         }

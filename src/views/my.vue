@@ -99,7 +99,9 @@ export default {
             this.$router.push("/land")
         },
         quit(){
-            // localStorage.removeItem("name");
+            // localStorage.removeItem("user");
+            // localStorage.removeItem("password");
+            localStorage.removeItem("name");
             this.bool = false
             // this.$router.go(0)
         }
@@ -110,7 +112,6 @@ export default {
             this.bool = true;
         }else{
             this.bool = false;
-            console.log(this.bool)
         }
         
     }

@@ -26,3 +26,8 @@
 //(c)完善拼团页内容，加入切换更改数据
 //(c)更新了详情页内容，加入的了提交按钮，引入拼团规则
 //(c)在src目录下module文件夹中，存放监测滚动模块
+
+//（z)修改根目录store.js文件，增加vuex模板；
+      修改/views/shopping.vue文件;修改/views/my.vue文件;
+      修改/components/detail.vue文件;
+      新增/components/shop.js文件；
