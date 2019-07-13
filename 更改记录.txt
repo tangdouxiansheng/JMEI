@@ -32,4 +32,10 @@
       修改/components/detail.vue文件;
       新增/components/shop.js文件；
 
-//（z）修改/components/文件夹下body.vue；page.vue；sale.vue；light.vue；fast.vue五个文件
+
+//（z）修改/components/文件夹下body.vue；page.vue；sale.vue；light.vue；fast.vue；shop.js六个文件；修改/views/my.vue；index.vue;
+
+//(c)解决src\views\assemble\assembleList 无限滚动完成后不能切换组件的问题
+//(c)解决src\views\assemble\assembleDetail 部分商品无法读取数据的问题
+//(c)解决部分未定义bug
+

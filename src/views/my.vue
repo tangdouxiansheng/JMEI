@@ -6,7 +6,7 @@
             <i class="fa fa-home" aria-hidden="true" @click="z_home"></i>
         </div>
         <div class="z_user">
-            <div class="fa fa-eercast" aria-hidden="true"></div>
+            <div class="fa fa-eercast fa-pulse" aria-hidden="true"></div>
             <div class="z_operation" v-if="bool">
                 帅气的<span class="nowname">{{name}}</span>您好
                 <span class="quit" @click="quit">注销</span>

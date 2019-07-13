@@ -2,14 +2,14 @@
     <div class="detail" >
         <ul v-scroll="flag" ref="detail">
             <li>
-               <div class="goods-img"><img :src="url" alt=""></div>
+               <div class="goods-img"><img :src="url" ></div>
                     <div class="goods-price">
                         <p class="tuan-price">
-                            <b>{{list.group_jumei_price?list.group_jumei_price:'暂无'}}</b>
+                            <b>{{list.group_jumei_price}}</b>  
                             <strong>包邮</strong>
                         </p>
-                        <p class="del-price"><span>{{list.group_single_price?list.group_single_price:'暂无'}}</span></p>
-                        <p class="tuan-number">{{list.buyer_number_text ? list.buyer_number_text:'暂无人评价' }}</p>
+                        <p class="del-price"><span>{{list.group_single_price}}</span></p>
+                        <p class="tuan-number">{{list.buyer_number_text}}</p>
                         <p class="price-details">价格详情</p>
                     <div class="time">
                         <div>还剩两天</div>
@@ -18,8 +18,11 @@
                 </div> 
             </li>
             <li>
-                <div class="tuan_people">
-                    <p><span class="goods-num">{{list.recommend_data[0].group_name_tag ? list.recommend_data[0].group_name_tag :'暂无'}}</span>{{list.share_info[1].text ? list.share_info[1].text:0}}</p>
+                <div class="tuan_people">                                                                   
+                    <p v-if="list.share_info"><span class="goods-num" v-if="list.recommend_data">
+                        {{list.recommend_data[0].group_name_tag}}</span>
+                        {{list.share_info[1].text}}
+                    </p>
                 </div>
             </li>
             <li>
@@ -47,7 +50,7 @@
             </li>
             <li>
                 <h3 class="course-title">选择型号</h3>
-                <div class="model-list">{{list.size[0].name ? list.size[0].name:''}}</div>
+                <div class="model-list" v-if="list.size">{{list.size[0].name}}</div>
             </li>
             <li>
                 <div class="tab-box">
@@ -74,8 +77,8 @@
         <div class="go_top" v-show="flag.bool" @click="goTop"><img src="http://f0.jmstatic.com/btstatic/h5/index/go_top.png" alt=""></div>
         <div class="detail_foot">
             <div class="foot_text" @click="go">首页</div>
-            <div class="foot_price" @click="logon" v-html="list.bottom_button.display_text ? list.bottom_button.display_text :''"></div>
-            <div class="foot_btn" @click="logon"><span v-html="list.bottom_button.action_text"></span></div>
+            <div class="foot_price" @click="logon" v-if="list.bottom_button" v-html="list.bottom_button.display_text"></div>
+            <div class="foot_btn" @click="logon"><span v-if="list.bottom_button" v-html="list.bottom_button.action_text"></span></div>
         </div>
     </div>
 </template>
@@ -94,7 +97,7 @@ export default {
         this.$axios.get('/jm/yiqituan/ajaxDetail?',{
             params:{
                 item_id:this.$route.params.id,
-                type:'global_deal',
+                type: !this.$route.params.id.indexOf('ht') ? 'global_deal' : 'jumei_pop',
                 tid:''
             }
         }).then((res)=>{
@@ -108,7 +111,6 @@ export default {
             this.$router.go(-1);
         },
         goTop(){
-            this.$refs.detail.scrollTop = 0;
         },
         logon(){
             this.$router.push('/land')

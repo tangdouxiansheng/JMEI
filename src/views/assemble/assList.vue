@@ -3,14 +3,17 @@
             <div class="box_title">
                 <div class="title">
                     <ul>
-                        <li v-for="(item,index) in list" :key="index">
-                           <span @click="getData(item.type,index)" :class="{'title-color':item ===list[number] ? !bool:bool}">{{item.title}}</span></li>
+                        <li v-for="(item,index) in arr" :key="index">
+                           <span @click="getData(item.type,index)" :class="{'title-color':item ===arr[number] ? !bool:bool}">{{item.title}}</span></li>
                     </ul>
                 </div>
             </div>
             <div class="box_empty"></div>
             <div class="box_body">
-                <ul>
+                <ul
+                    v-infinite-scroll="loadMore"
+                    infinite-scroll-disabled="loading"
+                    infinite-scroll-distance="20">
                         <li v-for="(item,index) in data" :key="index">
                             <!-- 路由传参 -->
                             <router-link :to="'/assDetail/'+item.item_id">  
@@ -30,15 +33,18 @@
                         </li>
                 </ul>
             </div>
+            <div class="ass_empty"></div>
         <router-view/>
     </div> 
     
 </template>
 <script>
+import { InfiniteScroll } from 'mint-ui';
+import { Toast } from 'mint-ui';
 export default {
     data(){
         return{
-            list:[
+            arr:[
                 {title:'推荐',type:'coutuan_home'},
                 {title:'美妆',type:'coutuan_makeup'},
                 {title:'母婴健康',type:'coutuan_baby'},
@@ -61,23 +67,44 @@ export default {
         }
     },
     created(){
+        this.resteList();
         this.getData('coutuan_home',this.number);
     },
     methods:{
+        loadMore(){
+            this.page++;
+            this.getData(this.type,this.number)
+        },
         getData(type,index){
+            if(this.page>5){
+                Toast({                 //mint-ui 弹窗提示
+                message:'已经到底了',
+                position:'bottom',
+                duration:2000
+              })
+              this.resteList();
+              return;
+            }
+            if(this.type!==type) this.data = [];  //当切换选项时清空当前数组
             this.number = index;
-            this.type = type
+            this.type = type;
+            this.loading = true
             this.$axios.get('/jm/yiqituan/tab_list?',{
                 params:{
                     tab:type,
                     page:this.page,
                     per_page:20,
-                    k:Date.now()
                 }
             }).then((res)=>{
-                this.data = res.data.data;
+                this.data = this.data.concat(res.data.data);
+                this.loading = false;
             })
         },
+        resteList(){                    //重置
+            this.data = [];
+            this.loading = false;
+            this.page = 1;
+        }
     },
    
 }
@@ -195,6 +222,9 @@ export default {
     .title-color{
         color: #fe4070;
         border-bottom: 0.1rem solid #fe4070;
+    }
+    .ass_empty{
+        height:0.965rem;
     }
 </style>
 

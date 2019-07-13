@@ -1,3 +1,4 @@
+import { Toast } from 'mint-ui';
 export default{
     state:{
         goods:localStorage.getItem("goods")?JSON.parse(localStorage.getItem("goods")).goods:[]
@@ -22,7 +23,12 @@ export default{
                     }
                 };
                 localStorage.setItem("goods",JSON.stringify(state))
-                alert("ojbk")
+                Toast({
+                    message: '添加成功',
+                    iconClass: 'fa fa-opera fa-pulse',
+                    position: 'middle',
+                    duration: 5000
+                });
             }else{
                 alert("未登录，请先登录")
             }

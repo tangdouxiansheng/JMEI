@@ -24,7 +24,13 @@
 <script>
    
     export default {
-       
+       watch:{
+           $route(v){
+               if(v.path === "/index/home/page"){
+                   this.$router.push("/index/home/page/toady")
+               }
+           }
+       }
     }
 </script>
 
