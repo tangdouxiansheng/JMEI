@@ -50,40 +50,40 @@ export default {
 }
 .router-link-active {
   color: #fe4070;
-  border-bottom: 1px solid #fe4070;
+  border-bottom: 0.018rem solid #fe4070;
 }
 
 .home_find {
   width: 100%;
-  height: 40px;
+  height: 0.727rem;
   overflow: hidden;
   position: relative;
 }
 .home_find_a {
-  width: 300px;
-  height: 30px;
-  border-radius: 30px;
+  width: 5.455rem;
+  height: 0.545rem;
+  border-radius: 0.545rem;
   background: #f5f5f5;
   color: #999;
   display: block;
-  line-height: 30px;
-  margin-top: 5px;
-  margin-left: 20px;
+  line-height: 0.545rem;
+  margin-top: 0.091rem;
+  margin-left: 0.364rem;
   text-align: center;
 }
 .home_find .fa-search {
-  font-size: 16px;
+  font-size: 0.291rem;
 }
 .home_find_a span {
-  margin-left: 5px;
-  font-size: 14px;
+  margin-left: 0.091rem;
+  font-size: 0.255rem;
   color: #999;
 }
 .home_find .fa-bars {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 20px;
+  top: 0.182rem;
+  right: 0.273rem;
+  font-size: 0.364rem;
 }
 
 .home {
@@ -98,7 +98,7 @@ export default {
   width: 100%;
   height: 0.891rem;
   position: fixed;
-  top: 0px;
+  top: 0rem;
   z-index: 2;
   background: #fff;
 }
@@ -111,7 +111,7 @@ export default {
 }
 .router-link-active {
   color: #fe4070;
-  border-bottom: 1px solid #fe4070;
+  border-bottom: 0.018rem solid #fe4070;
 }
 </style>
 

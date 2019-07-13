@@ -38,8 +38,6 @@ export default {
       key: "",
       loading:false,
       bool:false,  
-      haha:[],
-      heihei:[]
     }
   },
   mounted(){
@@ -115,32 +113,32 @@ export default {
   position: relative;
 }
 .goods_list_img {
-  width: 375px;
-  height: 130px;
+  width: 6.818rem;
+  height: 2.364rem;
   display: block;
 }
 .goods_list_div {
-  width: 204px;
-  height: 128px;
+  width: 3.709rem;
+  height: 2.327rem;
   position: absolute;
-  top: 20px;
-  left: 150px;
+  top: 0.364rem;
+  left: 2.727rem;
 }
 .goods_div_name {
-  font-size: 13px;
+  font-size: 0.236rem;
   color: #333;
-  width: 203px;
-  margin: 5px 0 10px 0;
+  width: 3.691rem;
+  margin: 0.091rem 0 0.182rem 0;
 }
 .goods_div_price {
-  width: 100px;
-  height: 22px;
+  width: 1.818rem;
+  height: 0.4rem;
   color: #fe4070;
-  font-size: 13px;
-  margin-bottom: 5px;
+  font-size: 0.236rem;
+  margin-bottom: 0.091rem;
 }
 .item_price {
-  font-size: 20px;
+  font-size: 0.364rem;
 }
 .item_market_price {
   color: #999;
@@ -148,10 +146,9 @@ export default {
 }
 .goods_div_comments {
   color: #999;
-  font-size: 12px;
+  font-size: 0.218rem;
 }
-.goods_button_gotop{position:fixed;
-                    right:30px;top:520px;width:44px;height:30px;}
-.goods_ul{margin-bottom:40px;}
-.fa-rocket{font-size:300px;}
+.goods_button_gotop{position:fixed;right:0.545rem;top:9.455rem;width:0.8rem;height:0.545rem;}
+.goods_ul{margin-bottom:0.727rem;}
+.fa-rocket{font-size:5.455rem;}
 </style>

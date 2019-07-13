@@ -39,3 +39,5 @@
 //(c)解决src\views\assemble\assembleDetail 部分商品无法读取数据的问题
 //(c)解决部分未定义bug
 
+//(t) 修改了/views/home.vue 文件,
+	修改了//components/goods.vue文件
