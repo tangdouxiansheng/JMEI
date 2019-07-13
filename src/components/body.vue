@@ -31,10 +31,9 @@ export default {
 </script>
 
 <style scoped>
-    .body_parent{margin-top:55px;}
     .body_li{position: relative;}
-    .body_li_imgBig{width:375px;height:187.5px;}
-    .body_li_img{width:72.98px;height:36.48px;margin-left:283px;}
-    .body_title{position: absolute;top:195px;left:10px;font-size:14px;color:#333;}
+    .body_li_imgBig{width:100%;height:3.409rem;}
+    .body_li_img{width:1.327rem;height:0.663rem;margin-left:5.145rem;}
+    .body_title{position: absolute;top:3.545rem;left:0.182rem;font-size:0.255rem;color:#333;}
 </style>
 

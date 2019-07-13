@@ -31,3 +31,5 @@
       修改/views/shopping.vue文件;修改/views/my.vue文件;
       修改/components/detail.vue文件;
       新增/components/shop.js文件；
+
+//（z）修改/components/文件夹下body.vue；page.vue；sale.vue；light.vue；fast.vue五个文件

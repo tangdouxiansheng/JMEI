@@ -31,10 +31,3 @@
     
 </script>
 
-<style scoped>
-    .light_parent{margin-top:55px;}
-    .light_li{position: relative;}
-    .light_li_imgBig{width:375px;height:187.5px;}
-    .light_li_img{width:72.98px;height:36.48px;margin-left:292px;}
-    .light_title{position: absolute;top:198px;left:10px;font-size:14px;color:#333;}
-</style>
