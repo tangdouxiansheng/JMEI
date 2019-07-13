@@ -27,7 +27,7 @@ export default{
                     message: '添加成功',
                     iconClass: 'fa fa-opera fa-pulse',
                     position: 'middle',
-                    duration: 5000
+                    duration: 500
                 });
             }else{
                 alert("未登录，请先登录")

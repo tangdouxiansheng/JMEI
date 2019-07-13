@@ -77,12 +77,17 @@
         <div class="go_top" v-show="flag.bool" @click="goTop"><img src="http://f0.jmstatic.com/btstatic/h5/index/go_top.png" alt=""></div>
         <div class="detail_foot">
             <div class="foot_text" @click="go">首页</div>
-            <div class="foot_price" @click="logon" v-if="list.bottom_button" v-html="list.bottom_button.display_text"></div>
-            <div class="foot_btn" @click="logon"><span v-if="list.bottom_button" v-html="list.bottom_button.action_text"></span></div>
+            <div class="foot_price" @click="addshop({
+                id:list.product_id,number:1,check:true,name:list.share_info[1].text,jumei_price:price,img:url
+                })" v-if="list.bottom_button" v-html="list.bottom_button.display_text"></div>
+            <div class="foot_btn" @click="addshop({
+                id:list.product_id,number:1,check:true,name:list.share_info[1].text,jumei_price:price,img:url
+                })"><span v-if="list.bottom_button" v-html="list.bottom_button.action_text"></span></div>
         </div>
     </div>
 </template>
 <script>
+import {mapMutations} from "vuex"
 export default {
     data(){
         return{
@@ -91,6 +96,7 @@ export default {
             flag:{
                 bool:false
             },
+            price:0
         }
     },
     created(){
@@ -104,6 +110,7 @@ export default {
             this.list = res.data.data;
             var obj = res.data.data.share_info[0];
             this.url = obj.image_url_set.url[320];
+            this.price = Number(this.list.group_jumei_price.slice(1))
         })
     },
     methods:{
@@ -111,10 +118,12 @@ export default {
             this.$router.go(-1);
         },
         goTop(){
+            this.$refs.detail.scrollTop = 0
         },
         logon(){
             this.$router.push('/land')
-        }
+        },
+        ...mapMutations(["addshop"])
     },
 }
 </script>

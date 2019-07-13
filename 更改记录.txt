@@ -41,3 +41,5 @@
 
 //(t) 修改了/views/home.vue 文件,
 	修改了//components/goods.vue文件
+
+//（z）修改了/components/shop.js和src\views\assemble\assDetail.vue
