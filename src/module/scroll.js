@@ -9,5 +9,10 @@ Vue.directive("gd",(el,binding)=>{
         }else{
             binding.value.bool=false
         }
+        if(el.scrollTop>500){
+            binding.value.butt = true;
+        }else{
+            binding.value.butt = false;
+        }
     })
 })

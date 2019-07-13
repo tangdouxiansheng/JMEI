@@ -43,3 +43,5 @@
 	修改了//components/goods.vue文件
 
 //（z）修改了/components/shop.js和src\views\assemble\assDetail.vue
+
+//（z）修改了/components/goods.vue和src\views\home.vue和src\module\scroll.js

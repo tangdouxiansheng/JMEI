@@ -23,7 +23,7 @@
         
       </ul>
     </div>
-    <mt-button plain class = "goods_button_gotop" @click="gotop" v-show="bool">顶</mt-button>
+    <!-- <mt-button plain class = "goods_button_gotop" @click="gotop" v-show="bool">顶</mt-button> -->
   </div>
 </template>
 <script>
@@ -37,20 +37,23 @@ export default {
       list:[],
       key: "",
       loading:false,
-      bool:false,  
+      // bool:false,  
     }
   },
-  mounted(){
-    window.addEventListener("scroll",this.sctoll)
-  },
+  // mounted(){
+  //   console.log("111")
+  //   window.addEventListener("scroll",this.sctoll)
+  // },
   methods: {
-    sctoll(){
-      if(document.documentElement.scrollTop>300){
-        this.bool = true
-      }else{
-        this.bool = false;
-      }
-    },
+    // sctoll(){
+    //   console.log("222")
+    //   if(document.documentElement.scrollTop>300){
+    //     this.bool = true
+    //     console.log("this.bool")
+    //   }else{
+    //     this.bool = false;
+    //   }
+    // },
      loadMore(){
          this.page++;
          this.changKey();
@@ -113,7 +116,7 @@ export default {
   position: relative;
 }
 .goods_list_img {
-  width: 6.818rem;
+  width: 100%;
   height: 2.364rem;
   display: block;
 }

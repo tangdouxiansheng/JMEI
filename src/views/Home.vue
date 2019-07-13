@@ -1,5 +1,5 @@
 <template>
-  <div class="home" v-gd="flag" scrolltop="60">
+  <div class="home" v-gd="flag" scrolltop="60" ref="top">
     <div class="home_find">
       <a href="#" class="home_find_a">
         <i class="fa fa-search" aria-hidden="true"></i>
@@ -22,6 +22,7 @@
       <router-link to="/index/home/sale">名品特卖</router-link>
     </div>
     <router-view />
+    <mt-button plain class = "goods_button_gotop" @click="gotop" v-show="flag.butt">顶</mt-button>
   </div>
 </template>
 <script>
@@ -30,9 +31,15 @@ export default {
   data() {
     return {
       flag: {
-        bool: false
+        bool: false,
+        butt:false
       }
     };
+  },
+  methods:{
+    gotop(){ 
+      this.$refs.top.scrollTop = 0;
+    }
   }
 };
 </script>
@@ -112,6 +119,11 @@ export default {
 .router-link-active {
   color: #fe4070;
   border-bottom: 0.018rem solid #fe4070;
+}
+.goods_button_gotop{
+  position:fixed;;
+  bottom:120px;
+  right:10px;
 }
 </style>
 
