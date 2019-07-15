@@ -9,7 +9,7 @@
         
         <li v-for="(item,index) in list" :key="index" class="goods_list">
           <router-link :to='"/detail/"+item.item_id'>
-          <img :src="item.image_url_set.dx_image?item.image_url_set.dx_image.url[320]:item.image_url_set.main[320]" class="goods_list_img" />
+          <img :src="item.image_url_set.dx_image?item.image_url_set.dx_image.url[320]:''" class="goods_list_img" />
           <div class="goods_list_div">
             <p class="goods_div_name">{{item.name}}</p>
             <p class="goods_div_price">
